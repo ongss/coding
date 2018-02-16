@@ -1,0 +1,75 @@
+#include<stdio.h>
+int main()
+{
+    int i,j,k,X,a,fornt[6];
+    int t=1,f=2,l=3,b=5,r=4,u=6;
+    char str[6][1000]={'x'};
+    scanf("%d",&a);
+    for(i=0;i<a;i++)
+    {
+            scanf("%s",str[i]);
+    }
+    for(j=0;j<a;j++)
+    {
+        t=1;
+        f=2;
+        l=3;
+        b=5;
+        r=4;
+        u=6;
+        for(i=0;i<1000;i++)
+        {
+            if(str[j][i]=='F')
+            {   
+                X=t;
+                t=b;
+                b=u;
+                u=f;
+                f=X;
+            }
+            if(str[j][i]=='B')
+            {
+                X=t;
+                t=f;
+                f=u;
+                u=b;
+                b=X;
+            }
+            if(str[j][i]=='C')
+            {
+                X=f;
+                f=r;
+                r=b;
+                b=l;
+                l=X;
+            }
+            if(str[j][i]=='D')
+            {
+                X=f;
+                f=l;
+                l=b;
+                b=r;
+                r=X;
+            }
+            if(str[j][i]=='L')
+            {
+                X=t;
+                t=l;
+                l=u;
+                u=r;
+                r=X;
+            }
+            if(str[j][i]=='R')
+            {
+                X=t;
+                t=r;
+                r=u;
+                u=l;
+                l=X;
+            }
+        }
+        fornt[j]=f;
+    }
+    for(i=0;i<a;i++) printf("%d ",fornt[i]);
+    scanf(" ");
+}

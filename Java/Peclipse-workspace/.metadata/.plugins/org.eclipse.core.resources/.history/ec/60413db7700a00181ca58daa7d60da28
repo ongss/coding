@@ -1,0 +1,41 @@
+package character;
+
+import util.RandomUtils;
+
+public class Thief extends Person{
+	int stolenAmount;
+	
+	public Thief(String name){
+		super(name);
+		this.stolenAmount = RandomUtils.randomRange(6, 30);
+	}
+	
+	public Thief(String name,int stolenAmount){
+		super(name);
+		this.stolenAmount = stolenAmount;
+	}
+	
+	public int getStolenAmount(){
+		return this.stolenAmount;
+	}
+	
+	public void setStolenAmount(int amount){
+		if(amount < 0) amount = 0;
+		this.stolenAmount = amount;
+	}
+	
+	public void action(Person other){
+		if(!(other instanceof Police) && !(other instanceof Thief)){
+			int stole = (this.getStolenAmount() > other.getMoney()) ? other.getMoney() : this.getStolenAmount();
+			other.decreaseMoney(stole);
+			this.increaseMoney(stole);
+		}
+	}
+	
+	@Override
+	public String toString() {
+		return super.toString() + ", stolenAmount : " + stolenAmount;
+	}
+	
+	
+}

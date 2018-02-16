@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1504613241 source:c:\users\ittiwat\desktop\programing\c++\reversevector\main.cpp
+	<iostream>
+	<vector>
+

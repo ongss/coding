@@ -1,0 +1,54 @@
+package character;
+
+public class Person {
+	String name;
+	int money;
+	
+	@Override
+	public String toString() {
+		return getClass().getSimpleName() + "| name : " + name + ", money : " + money;
+	}
+
+	public String getNameWithRole() {
+		return this.name + "(" + this.getClass().getSimpleName() + ")";
+	}
+	
+	public Person(){
+		this.money = 0;
+	}
+	
+	public Person(String name){
+		this();
+		this.name = name;
+	}
+	
+	public void action(Person other){
+		System.out.println(this.getNameWithRole() + " meets " + other.getNameWithRole());
+		if(other instanceof Merchant){
+			System.out.println(this.getNameWithRole() + "buys something form" + other.getNameWithRole());
+			Merchant m = (Merchant) other;
+			m.sell(this);
+		}
+	}
+	
+	public String getName(){
+		return this.name;
+	}
+	
+	public int getMoney(){
+		return this.money;
+	}
+	
+	public void setMoney(int m){
+		if(m < 0) m = 0;
+		this.money = m;
+	}
+	
+	public void increaseMoney(int amount){
+		setMoney(this.getMoney() + amount);
+	}
+	
+	public void decreaseMoney(int amount){
+		setMoney(this.getMoney() - amount);
+	}
+}

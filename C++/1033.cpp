@@ -1,0 +1,53 @@
+#include<stdio.h>
+int main()
+{
+	int tab[100][100]={0},n,turn,i,j,k,Ax,Ay,Bx,By,Cx,Cy,Dx,Dy;
+	char cmd[1000][4];
+	scanf("%d%d",&n,&turn);
+	for(i=0;i<turn;i++)
+	{
+		for(j=0;j<4;j++)
+		{
+			scanf("%c",&cmd[i][j]);
+		}
+	}
+	Dx=0;
+	Dy=0;
+	Ax=n-1;
+	Ay=0;
+	Cx=0;
+	Cy=n-1;
+	Dx=n-1;
+	Dy=n-1;
+	tab[0][0]=4;
+	tab[0][n-1]=1;
+	tab[n-1][0]=3;
+	tab[n-1][n-1]=2;
+	for(i=0;i<turn;i++)
+	{
+		for(j=0;j<4;j++)
+		{
+			if(cmd[i][j]=='N')
+			{
+				if(j==0)
+				{
+					if(Ay>0&&(Ay!=By||Ax!=Bx)&&(Ay!=Cy||Ax!=Cx)&&(Ay!=Dy||Ax!=Dx))
+					{
+						Ay--;
+						tab[Ay][Ax]=1;
+					}
+				}
+			}
+			//if(cmd[i][j]=='E')
+			//if(cmd[i][j]=='S')
+			//if(cmd[i][j]=='W')
+		}
+	}
+	for(i=0;i<n;i++)
+	{
+		for(j=0;j<n;j++)
+		{
+			printf("%d",tab[i][j]);
+		}
+	}
+}

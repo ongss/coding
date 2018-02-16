@@ -1,0 +1,27 @@
+package character;
+
+import other.Case;
+import place.City;
+
+public class Police extends Person{
+	public static int ARREST_AWARD = 200;
+	
+	public Police(String name){
+		super(name);
+	}
+	
+	public void action(Person other){
+		if(other instanceof Thief){
+			Thief t = (Thief) other;
+			for(Case c : City.getInstance().getStation().getCases()){
+				if(c.getThief() == t){
+					
+				}
+			}
+		}
+	}
+	
+	public void receiveReport(Person victim,Thief thief){
+		
+	}
+}

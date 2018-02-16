@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1504712264 source:c:\users\ittiwat\desktop\programing\c++\removeeven\main.cpp
+	<iostream>
+	<vector>
+

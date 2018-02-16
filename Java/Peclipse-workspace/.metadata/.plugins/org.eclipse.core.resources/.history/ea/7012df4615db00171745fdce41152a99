@@ -1,0 +1,78 @@
+package game_model;
+
+import game_object.Monster;
+import game_object.OutsideSpace;
+import game_object.Robot;
+import timer.GameTimer;
+import timer.TimerThread;
+
+public class GameRobotModel {
+	private GameTimer timer;
+	public Robot robot;
+	public Monster monster;
+	public OutsideSpace os;
+	long monsterRespawTime,timeLastDie;
+	long monsterDelay,timeLastMove;
+	int reward;
+	public boolean control;
+	final int REWARD_INCREASE = 100;
+
+	
+	public GameRobotModel(GameTimer timer){
+		this.timer = timer;
+		os = new OutsideSpace(0,250,1500,500);
+		robot = new Robot(os,250,300,60,100,1,1,1,1,1);
+		monster = new Monster(robot,os,600,300,60,100,1,1,1,1,1,100,1);
+		timeLastMove = 0;
+		control = false;
+		monsterTurn();
+	}
+	
+	public void update() {
+		robot.update();
+		monster.update();
+		//monsterTurn();
+	}
+	
+	void monsterTurn() {
+		System.out.println("monster turn");
+		monster.startTurn();
+		timer.runDelay(new TimerThread() {
+			public void comp() {
+				monster.endTurn();
+				timer.runDelay(new TimerThread() {
+					public void comp() {
+						System.out.println("hello");
+						monsterTurn();
+					}
+				}, 10000);
+			}
+		}, 2000);
+	}
+	
+	boolean monsterDefeat(){
+		if(monster.isDefeat()) {
+			generateNewMonster();
+			return true;
+		}
+		return false;
+	}
+	
+	void recivedReward() {
+		
+	}
+	
+	void rewardIncrease() {
+		
+	}
+	
+	void generateNewMonster() {
+		//if(time > (timeLastDie + monsterRespawTime)); {
+			
+		//}
+	}
+	
+	void upgradeRobot() {
+		
+	}
+}

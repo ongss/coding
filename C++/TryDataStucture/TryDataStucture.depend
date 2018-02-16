@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1507131296 source:c:\users\ittiwat\desktop\programing\c++\trydatastucture\main.cpp
+	<iostream>
+	<set>
+	"queue.h"
+	"pair.h"
+	<map>
+
+1507098253 c:\users\ittiwat\desktop\programing\c++\trydatastucture\queue.h
+	<vector>
+
+1507101655 c:\users\ittiwat\desktop\programing\c++\trydatastucture\pair.h
+

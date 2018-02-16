@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1506250574 source:c:\users\ittiwat\desktop\programing\c++\test\main.cpp
+	<iostream>
+	<vector>
+	<map>
+	<set>
+	<stack>
+

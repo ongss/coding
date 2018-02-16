@@ -1,0 +1,4 @@
+		for(Edge edge : edges) {
+			if(edge.normal.dot(p.vector()) > 0) return false;
+		}
+		return true;
